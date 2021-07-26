@@ -6,10 +6,10 @@
             <select class="form-control select2" name="category_id" style="width: 100%;">
                 <option value="0">Category</option>
                 @foreach($datalist as $rs)
-                    <option value="{{ $rs->id }}" @if($rs->id == ($data->category_id ?? null))
+                <option value="{{ $rs->id }}" @if($rs->id == ($data->category_id ?? null))
                     selected="selected" @endif>
-                        {{$rs->title}}
-                    </option>
+                    {{$rs->title}}
+                </option>
                 @endforeach
             </select>
         </div>
@@ -23,8 +23,7 @@
         </div>
         <div class="form-group">
             <label>Description</label>
-            <input type="text" name="description" value="{{$data->description ?? null}}"
-                   class="form-control">
+            <input type="text" name="description" value="{{$data->description ?? null}}" class="form-control">
         </div>
         <div class="form-group">
             <label>Price</label>
@@ -36,8 +35,7 @@
         </div>
         <div class="form-group">
             <label>MinQuantity</label>
-            <input type="number" value="{{$data->minquantity ?? null}}" name="minquantity"
-                   class="form-control">
+            <input type="number" value="{{$data->minquantity ?? null}}" name="minquantity" class="form-control">
         </div>
         <div class="form-group">
             <label>Tax</label>
@@ -62,10 +60,8 @@
         <div class="form-group">
             <label>Image</label>
             <input type="file" name="image" value="{{$data->image ?? null}}" class="form-control">
-
-            @if ($data->image ?? false)
-                <img src="{{ Storage::url($data->image) }}" height="60"
-                     alt="">
+            @if ($data->image ?? null)
+            <img src="{{ Storage::url($data->image) }}" height="30" alt="">
             @endif
         </div>
         <div class="form-group">
@@ -79,4 +75,3 @@
         <button type="submit" class="btn btn-primary">Edit Card</button>
     </div>
 </form>
-

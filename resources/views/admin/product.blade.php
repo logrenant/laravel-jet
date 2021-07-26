@@ -72,8 +72,7 @@
                                                         @endif
                                                     </td>
                                                     <td>
-                                                        <a href="{{route('admin_image_add',
-                                                        ['product_id'=>$rs->id])}}">
+                                                        <a>
                                                             Gallery
                                                         </a>
                                                     </td>
