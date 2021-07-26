@@ -1,6 +1,12 @@
 @extends('layouts.admin')
 
 @section('title', 'Add Product')
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"/>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+
 @section('content')
 
     <div class="wrapper">
@@ -31,64 +37,7 @@
                     <div class="card-header">
                         <h3 class="card-title">Add Product</h3>
                     </div>
-                    <form action="{{route('admin_product_store')}}" method="post">
-                        @csrf
-                        <div class="card-body">
-                            <div class="form-group">
-                                <label>Parent</label>
-                                <select class="form-control select2" name="category_id" style="width: 100%;">
-                                    <option value="0" selected="selected">Main Product</option>
-                                    @foreach($datalist as $rs)
-                                        <option value="{{ $rs->id }}">{{ $rs->title }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label>Title</label>
-                                <input type="text" name="title" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label>Keywords</label>
-                                <input type="text" name="keywords" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label>Description</label>
-                                <input type="text" name="description" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label>Price</label>
-                                <input type="number" name="price" value="0" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label>Quantity</label>
-                                <input type="number" name="quantity" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label>MinQuantity</label>
-                                <input type="number" value="5" name="minquantity" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label>Tax</label>
-                                <input type="number" value="18" name="tax" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label>Detail</label>
-                                <input type="text" name="detail" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label>Slug</label>
-                                <input type="text" name="slug" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label>Status</label>
-                                <select class="form-control select2" name="status" style="width: 100%;">
-                                    <option selected="selected">False</option>
-                                    <option>True</option>
-                                </select>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Add Product</button>
-                        </div>
-                    </form>
+                    @include('admin.partials._product_form', ['action'=>route('admin_product_store')])
                 </div>
             </section>
         </div>
