@@ -2,8 +2,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="{{route('admin_home')}}" class="brand-link">
-        <img src="{{asset('assets')}}/admin/dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
-             class="brand-image img-circle elevation-3" style="opacity: .8">
+        <i class="fa fa-home pl-3 nav-classic" aria-hidden="true"></i>
         <span class="brand-text font-weight-light">Anasayfa</span>
     </a>
 
@@ -49,6 +48,14 @@
                         <i class="fab fa-product-hunt nav-icon"></i>
                         <p>
                             Products
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('admin_products')}}" class="nav-link">
+                        <i class="fa fa-cogs nav-icon"></i>
+                        <p>
+                            Settings
                         </p>
                     </a>
                 </li>
