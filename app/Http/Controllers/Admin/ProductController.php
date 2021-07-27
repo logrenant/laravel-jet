@@ -111,7 +111,6 @@ class ProductController extends Controller
         $data->detail = $request->detail;
         $data->image = Storage::putFile('images', $request->file('image'));
 
-
         $data->save();
 
         return redirect()->route('admin_products');
