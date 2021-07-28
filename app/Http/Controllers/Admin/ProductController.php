@@ -109,7 +109,10 @@ class ProductController extends Controller
         $data->minquantity = $request->minquantity;
         $data->tax = $request->tax;
         $data->detail = $request->detail;
-        $data->image = Storage::putFile('images', $request->file('image'));
+        if ($request->file('image'!=null))
+        {
+            $data->image = Storage::putFile('images', $request->file('image'));
+        }
 
         $data->save();
 
