@@ -1,4 +1,4 @@
-@extends('home.admin')
+@extends('layouts.admin')
 
 @section('title', 'Category List')
 @section('content')
