@@ -3,14 +3,25 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
+    public static function categoryList()
+    {
+        return Category::where('parent_id', '=', null)->with('children')->get();
+    }
+
     public function index()
     {
         return view('admin.index');
+    }
+
+    public function aboutus()
+    {
+        return view('home.about');
     }
 
     public function login()

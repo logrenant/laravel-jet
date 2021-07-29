@@ -2,14 +2,15 @@
     @csrf
     <div class="card-body">
         <div class="form-group">
-            <label>Parent</label>
+            <label>Category</label>
             <select class="form-control select2" name="category_id" style="width: 100%;">
                 <option value="0">Category</option>
                 @foreach($datalist as $rs)
-                <option value="{{ $rs->id }}" @if($rs->id == ($data->category_id ?? null))
-                    selected="selected" @endif>
-                    {{$rs->title}}
-                </option>
+                    <option value="{{ $rs->id }}"
+                            @if($rs->id == ($data->category_id ?? null))selected="selected" @endif>
+                        {{\App\Http\Controllers\Admin\CategoryController::getParentsTree($rs, $rs->title ?? null)}}
+                        {{$rs->title}}
+                    </option>
                 @endforeach
             </select>
         </div>
@@ -61,7 +62,7 @@
             <label>Image</label>
             <input type="file" name="image" value="{{$data->image ?? null}}" class="form-control">
             @if ($data->image ?? null)
-            <img src="{{ Storage::url($data->image) }}" height="30" alt="">
+                <img src="{{ Storage::url($data->image) }}" height="30" alt="">
             @endif
         </div>
         <div class="form-group">

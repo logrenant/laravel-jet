@@ -1,4 +1,4 @@
-@include('layouts.partials._head')
+@include('home._head')
 
 <main id="content" role="main">
     <!-- Login Form -->
@@ -48,5 +48,5 @@
     </div>
     <!-- End Login Form -->
 </main>
-@include('layouts.partials._footer')
+@include('home._footer')
 
