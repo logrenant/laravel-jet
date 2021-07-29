@@ -1528,7 +1528,7 @@ function getAlpha(string) {
 // generators
 function hexString(rgba, a) {
    var a = (a !== undefined && rgba.length === 3) ? a : rgba[3];
-   return "#" + hexDouble(rgba[0]) 
+   return "#" + hexDouble(rgba[0])
               + hexDouble(rgba[1])
               + hexDouble(rgba[2])
               + (
@@ -16125,7 +16125,7 @@ core_controller.PluginBase = core_controller.Element.extend({});
 core_controller.canvasHelpers = core_controller.helpers.canvas;
 
 /**
- * Provided for backward compatibility, use Chart.layouts instead.
+ * Provided for backward compatibility, use Chart.home instead.
  * @namespace Chart.layoutService
  * @deprecated since version 2.7.3
  * @todo remove at version 3

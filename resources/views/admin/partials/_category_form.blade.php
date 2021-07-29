@@ -4,9 +4,12 @@
         <div class="form-group">
             <label>Parent</label>
             <select class="form-control select2" name="parent_id" style="width: 100%;">
-                <option value="0">Main Category</option>
+                <option value="">Main Category</option>
                 @foreach($datalist as $rs)
-                    <option value="{{ $rs->id }}" @if($rs->id == ($rs->parent_id ?? null))selected="selected" @endif>
+                    <option value="{{ $rs->id }}"   @if($rs->id == ($rs->parent_id ?? null))
+                    selected="selected"
+                        @endif>
+                        {{\App\Http\Controllers\Admin\CategoryController::getParentsTree($rs, $rs->title ?? null)}}>
                         {{$rs->title}}
                     </option>
                 @endforeach

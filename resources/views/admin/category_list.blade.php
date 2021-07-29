@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('home.admin')
 
 @section('title', 'Category List')
 @section('content')
@@ -54,7 +54,11 @@
                                             @foreach($datalist as $rs)
                                                 <tr>
                                                     <td>{{ $rs->id }}</td>
-                                                    <td>{{ $rs->parent_id }}</td>
+                                                    <td>
+                                                        @if ($rs->parent_id !== null)
+                                                        {{ \App\Http\Controllers\Admin\CategoryController::getParentsTree($rs, $rs->title) }}
+                                                        @endif
+                                                    </td>
                                                     <td>{{ $rs->title }}</td>
                                                     <td>{{ $rs->status }}</td>
                                                     <td>

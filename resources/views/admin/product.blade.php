@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('home.admin')
 
 @section('title', 'Product List')
 @section('content')
@@ -61,14 +61,16 @@
                                             @foreach($datalist as $rs)
                                                 <tr>
                                                     <td>{{ $rs->id }}</td>
-                                                    <td>{{ $rs->category->title }}</td>
+                                                    <td>
+                                                        {{\App\Http\Controllers\Admin\CategoryController::getParentsTree($rs->category, $rs->category->title) }}
+                                                    </td>
                                                     <td>{{ $rs->title }}</td>
                                                     <td>{{ $rs->quantity }}</td>
                                                     <td>{{ $rs->price }}</td>
                                                     <td>
                                                         @if ($rs->image)
                                                             <img src="{{ Storage::url($rs->image) }}"
-                                                            height="30" alt="">
+                                                                 height="30" alt="">
                                                         @endif
                                                     </td>
                                                     <td>
