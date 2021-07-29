@@ -7,7 +7,7 @@
             <nav class="js-mega-menu navbar navbar-expand-lg">
                 <div class="navbar-nav-wrap">
                     <!-- Logo -->
-                    <a class="navbar-brand navbar-nav-wrap-brand" href="/" aria-label="Front">
+                    <a class="navbar-brand navbar-nav-wrap-brand" href="{{route('home_page')}}" aria-label="Front">
                         <h2 class="text-primary">Simpliers</h2>
                     </a>
                     <!-- End Logo -->
@@ -18,10 +18,10 @@
                         <div class="hs-unfold d-lg-none d-inline-block position-static">
                             <a class="js-hs-unfold-invoker btn btn-xs btn-icon rounded-circle" href="javascript:;"
                                data-hs-unfold-options='{
-                    "target": "#searchClassic",
-                    "type": "css-animation",
-                    "animationIn": "slideInUp"
-                   }'>
+                                "target": "#searchClassic",
+                                "type": "css-animation",
+                                "animationIn": "slideInUp"
+                               }'>
                                 <i class="fas fa-search"></i>
                             </a>
 
@@ -42,94 +42,99 @@
 
                         <!-- Account -->
                         <div class="hs-unfold">
-                            <a class="js-hs-unfold-invoker rounded-circle" href="javascript:;"
-                               data-hs-unfold-options='{
-                    "target": "#accountDropdown",
-                    "type": "css-animation",
-                    "event": "hover",
-                    "duration": 50,
-                    "delay": 0,
-                    "hideOnScroll": "true"
-                   }'>
-                  <span class="avatar avatar-xs avatar-circle">
-                    <img class="avatar-img" src="../../assets/img/100x100/img1.jpg" alt="Image Description">
-                  </span>
-                            </a>
+                            @auth
+                                <a class="js-hs-unfold-invoker rounded-circle" href="javascript:;"
+                                   data-hs-unfold-options='{
+                                "target": "#accountDropdown",
+                                "type": "css-animation",
+                                "event": "hover",
+                                "duration": 50,
+                                "delay": 0,
+                                "hideOnScroll": "true"
+                               }'>
+                                  <span class="avatar avatar-xs avatar-circle">
+                                    <img class="avatar-img" src="../../assets/img/100x100/img1.jpg"
+                                         alt="Image Description">
+                                  </span>
+                                    <span class="text-body">{{ Auth::user()->name }}</span>
+                                </a>
 
-                            <div id="accountDropdown"
-                                 class="hs-unfold-content dropdown-menu dropdown-menu-sm-right dropdown-menu-no-border-on-mobile p-0"
-                                 style="min-width: 245px;">
-                                <div class="card">
-                                    <!-- Header -->
-                                    <div class="card-header p-4">
-                                        <a class="media align-items-center" href="#">
-                                            <div class="avatar mr-3">
-                                                <img class="avatar-img" src="../../assets/img/100x100/img1.jpg"
-                                                     alt="Image Description">
-                                            </div>
-                                            <div class="media-body">
-                                                <span class="d-block font-weight-bold">Nataly Gaga <span
+                                <div id="accountDropdown"
+                                     class="hs-unfold-content dropdown-menu dropdown-menu-sm-right dropdown-menu-no-border-on-mobile p-0"
+                                     style="min-width: 245px;">
+                                    <div class="card">
+                                        <!-- Header -->
+                                        <div class="card-header p-4">
+                                            <a class="media align-items-center" href="#">
+                                                <div class="avatar mr-3">
+                                                    <img class="avatar-img" src="../../assets/img/100x100/img1.jpg"
+                                                         alt="Image Description">
+                                                </div>
+                                                <div class="media-body">
+                                                <span class="d-block font-weight-bold">{{ Auth::user()->name }}<span
                                                         class="badge badge-success ml-1">Pro</span></span>
-                                                <span class="d-block small text-muted">natalygaga@gmail.com</span>
-                                            </div>
-                                        </a>
+                                                    <span class="d-block small text-muted">natalygaga@gmail.com</span>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <!-- End Header -->
+                                        <!-- Body -->
+                                        <div class="card-body py-3">
+                                            <a class="dropdown-item px-0" href="#">
+                                            <span class="dropdown-item-icon">
+                                              <i class="fas fa-database"></i>
+                                            </span>
+                                                Ödeme Geçmişi
+                                            </a>
+                                            <a class="dropdown-item px-0" href="#">
+                                            <span class="dropdown-item-icon">
+                                              <i class="fas fa-user"></i>
+                                            </span>
+                                                Hesabım
+                                            </a>
+                                            <a class="dropdown-item px-0" href="#">
+                                            <span class="dropdown-item-icon">
+                                              <i class="fas fa-credit-card"></i>
+                                            </span>
+                                                Ödeme Yöntemleri
+                                            </a>
+
+                                            <div class="dropdown-divider"></div>
+
+                                            <a class="dropdown-item px-0" href="#">
+                                            <span class="dropdown-item-icon">
+                                              <i class="fas fa-question-circle"></i>
+                                            </span>
+                                                Destek
+                                            </a>
+                                            <a class="dropdown-item px-0" href="{{route('logout')}}">
+                                            <span class="dropdown-item-icon">
+                                              <i class="fas fa-power-off"></i>
+                                            </span>
+                                                Çıkış Yap
+                                            </a>
+                                        </div>
+
+                                        <!-- End Body -->
                                     </div>
-                                    <!-- End Header -->
-
-                                    <!-- Body -->
-                                    <div class="card-body py-3">
-                                        <a class="dropdown-item px-0" href="#">
-                                    <span class="dropdown-item-icon">
-                                      <i class="fas fa-comments"></i>
-                                    </span>
-                                            Messages
-                                        </a>
-                                        <a class="dropdown-item d-lg-none" href="#">
-                                    <span class="dropdown-item-icon">
-                                      <i class="fas fa-tasks"></i>
-                                    </span>
-                                            My courses
-                                        </a>
-                                        <a class="dropdown-item px-0" href="#">
-                                    <span class="dropdown-item-icon">
-                                      <i class="fas fa-database"></i>
-                                    </span>
-                                            Purchase history
-                                        </a>
-                                        <a class="dropdown-item px-0" href="#">
-                                    <span class="dropdown-item-icon">
-                                      <i class="fas fa-user"></i>
-                                    </span>
-                                            Account
-                                        </a>
-                                        <a class="dropdown-item px-0" href="#">
-                                    <span class="dropdown-item-icon">
-                                      <i class="fas fa-credit-card"></i>
-                                    </span>
-                                            Payment methods
-                                        </a>
-
-                                        <div class="dropdown-divider"></div>
-
-                                        <a class="dropdown-item px-0" href="#">
-                                    <span class="dropdown-item-icon">
-                                      <i class="fas fa-question-circle"></i>
-                                    </span>
-                                            Help
-                                        </a>
-                                        <a class="dropdown-item px-0" href="#">
-                                    <span class="dropdown-item-icon">
-                                      <i class="fas fa-power-off"></i>
-                                    </span>
-                                            Log out
-                                        </a>
-                                    </div>
-                                    <!-- End Body -->
                                 </div>
-                            </div>
+                            @endauth
+                            @guest
+                                <div>
+                                   <span>
+                                       <a href="{{route('login')}}" style="color:#6c757d;"> Giriş Yap </a>
+                                   </span>
+                                    /
+                                    <span>
+                                        <a href="{{route('register')}}" style="color:#6c757d;">Kaydol</a>
+                                    </span>
+                                </div>
+                            @endguest
                         </div>
+
                         <!-- End Account -->
                     </div>
+
                     <!-- End Secondary Content -->
 
                     <!-- Responsive Toggle Button -->
@@ -158,12 +163,7 @@
                     <!-- Navigation -->
                     <div id="navBar" class="navbar-nav-wrap-navbar collapse navbar-collapse">
                         <ul class="navbar-nav">
-                            @include('home._category')
-                            <!-- Courses -->
-
-
-                            <!-- End Courses -->
-
+                        @include('home._category')
                             <!-- Search Form -->
                             <li class="d-none d-lg-inline-block navbar-nav-item flex-grow-1 mx-2">
                                 <form class="input-group input-group-sm input-group-merge w-75">
@@ -178,22 +178,33 @@
                             </li>
                             <!-- End Search Form -->
 
-                            <!-- Pages -->
-                            <li class="hs-has-sub-menu navbar-nav-item mr-lg-auto">
-                                <a id="pagesMegaMenu" class="hs-mega-menu-invoker nav-link nav-link-toggle"
-                                   href="javascript:;" aria-haspopup="true" aria-expanded="false"
-                                   aria-labelledby="pagesSubMenu">Pages</a>
-
-                                <!-- Pages - Submenu -->
-                                <div id="pagesSubMenu" class="hs-sub-menu dropdown-menu" aria-labelledby="pagesMegaMenu"
-                                     style="min-width: 230px;">
-                                    <a class="dropdown-item" href="courses-listing.html">Courses</a>
-                                    <a class="dropdown-item" href="course-description.html">Course description</a>
-                                    <a class="dropdown-item" href="author.html">Author</a>
+                            <!-- Shopping Cart -->
+                            @auth
+                            <li class="list-inline-item">
+                                <div class="hs-unfold">
+                                    <a class="js-hs-unfold-invoker btn btn-icon btn-ghost-secondary mr-3"
+                                       href="javascript:;"
+                                       data-hs-unfold-options='{
+                                          "target": "#shoppingCartDropdown",
+                                          "type": "css-animation",
+                                          "event": "hover",
+                                          "hideOnScroll": "true"
+                                        }'>
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </a>
+                                    <div id="shoppingCartDropdown" class="hs-unfold-content dropdown-menu dropdown-menu-right text-center p-7" style="min-width: 250px;">
+                                        <figure class="max-w-9rem mx-auto mb-3">
+                                            <img class="img-fluid" src="../../assets/svg/illustrations/empty-cart.svg" alt="SVG">
+                                        </figure>
+                                        <span class="d-block">Your Cart is Empty</span>
+                                    </div>
                                 </div>
-                                <!-- End Pages - Submenu -->
                             </li>
-                            <!-- End Pages -->
+                            <!-- End Shopping Cart -->
+                            <div>
+                                <a class="btn btn-icon btn-ghost-secondary mr-3" href="#"><i class="fas fa-heart"></i></a>
+                            </div>
+                            @endauth
                         </ul>
                     </div>
                     <!-- End Navigation -->
