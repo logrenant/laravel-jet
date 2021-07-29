@@ -3,14 +3,14 @@
 <head>
     <!-- Title -->
     <title>@yield('title')</title>
-    @include('layouts.partials._head')
+    @include('home._head')
     @yield('head')
 
 </head>
 <body>
-@include('layouts.partials._header')
+@include('home._header')
 @yield('content')
-@include('layouts.partials._footer')
+@include('home._footer')
 
 
 

@@ -17,7 +17,7 @@
                    href="javascript:;" aria-haspopup="true" aria-expanded="false"
                    aria-controls="navSubmenuCoursesDevelopment">
                                         <span class="min-w-4rem text-center opacity-lg mr-1">
-                                          <i class="fa fa-laptop-code font-size-1 mr-1"></i>
+                                          <i class="fas fa-tags"></i>
                                         </span>
                     {{$rs->title}}
                 </a>
