@@ -52,7 +52,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{route('admin_products')}}" class="nav-link">
+                    <a href="{{route('admin_setting')}}" class="nav-link">
                         <i class="fa fa-cogs nav-icon"></i>
                         <p>
                             Settings
